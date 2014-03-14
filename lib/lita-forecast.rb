@@ -2,10 +2,8 @@
 
 require 'lita'
 
-# Lita Forecast.io module
-#
-module LitaForecast
-  VERSION = '0.0.1'
-end
+Lita.load_locales Dir[File.expand_path(
+  File.join('..', '..', 'locales', '*.yml'), __FILE__
+)]
 
 require 'lita/handlers/forecast'

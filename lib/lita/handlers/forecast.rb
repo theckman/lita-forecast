@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-require 'forecast'
+require 'forecast_io'
 require 'geocoder'
 
 module Lita
@@ -7,7 +7,10 @@ module Lita
     # Lita Forecast.io plugin!
     #
     class Forecast < Handler
+      VERSION = '0.0.1'
+
       attr_reader :forecast
+
       route(
         /^wx\s(.*)$/,
         :weather,
