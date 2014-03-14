@@ -35,6 +35,8 @@ module Lita
       def set_forecast_config
         ForecastIO.api_key = Lita.config.handlers.forecast.api_key
       end
+
+      Lita.register_handler(Forecast)
     end
   end
 end
