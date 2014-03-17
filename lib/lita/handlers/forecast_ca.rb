@@ -4,18 +4,21 @@ require 'lita/handlers/forecast/weather'
 
 module Lita
   module Handlers
-    # Lita Forecast.io plugin!
+    # Lita::Handlers::ForecastCA
+    # Weather for our brothers from the north
     #
-    class ForecastUS < Handler
+    # TODO: Should probably just make this an arg you can pass in...
+    #
+    class ForecastCA < Handler
       include LitaForecast::Mixins
       include LitaForecast::Weather
 
       route(
-        /^wx\s(.*)$/,
-        :weather_us,
+        /^wc\s(.*)$/,
+        :weather_ca,
         command: true,
         help: {
-          'wx san francisco' => 'Get the weather for San Francisco'
+          'wc toronto' => 'You want the weather for Toronto, eh?'
         }
       )
 
@@ -23,8 +26,8 @@ module Lita
         config.api_key = nil
       end
 
-      def weather_us(response)
-        response.reply(weather(response, api_key, 'us'))
+      def weather_ca(response)
+        response.reply(weather(response, api_key, 'ca'))
       end
 
       private
@@ -33,7 +36,7 @@ module Lita
         Lita.config.handlers.forecast.api_key
       end
 
-      Lita.register_handler(ForecastUS)
+      Lita.register_handler(ForecastCA)
     end
   end
 end

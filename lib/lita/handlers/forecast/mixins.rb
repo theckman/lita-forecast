@@ -1,5 +1,4 @@
 # -*- coding: UTF-8 -*-
-require 'forecast_io'
 
 # The thing
 #
@@ -7,12 +6,6 @@ module LitaForecast
   # MOdule
   #
   module Mixins
-    def weather(api_key, l = {})
-      ForecastIO.api_key = api_key
-      l = { params: { exclude: 'alerts' } }.merge(l)
-      ForecastIO.forecast(l[:lat].to_f, l[:lng].to_f, params: l['params'])
-    end
-
     def round(precision, val)
       base = 10**precision
       format('%g', (val * base).to_i / base.to_f)
