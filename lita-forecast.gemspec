@@ -3,7 +3,7 @@ require 'English'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-require 'lita-forecast'
+require 'lita-forecast/version'
 
 Gem::Specification.new do |g|
   g.name        = 'lita-forecast'

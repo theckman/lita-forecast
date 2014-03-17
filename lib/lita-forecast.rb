@@ -6,8 +6,5 @@ require 'lita/handlers/forecast_us'
 require 'lita/handlers/forecast_locations'
 require 'lita/handlers/location_search'
 
-# LitaForecast top-level namespace
-#
-module LitaForecast
-  VERSION = '0.0.3'
-end
+# YOU NEED TO UNIFY THE HANDLERS (fuck) AND MAKE EACH THING ITS OWN CLASS
+# I GUESS...
