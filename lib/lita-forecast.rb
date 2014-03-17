@@ -1,9 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 require 'lita'
-
-Lita.load_locales Dir[File.expand_path(
-  File.join('..', '..', 'locales', '*.yml'), __FILE__
-)]
-
 require 'lita/handlers/forecast'
+require 'lita/handlers/forecast_us'
+require 'lita/handlers/forecast_locations'
+require 'lita/handlers/location_search'
+
+# YOU NEED TO UNIFY THE HANDLERS (fuck) AND MAKE EACH THING ITS OWN CLASS
+# I GUESS...
