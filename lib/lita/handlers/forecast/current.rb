@@ -14,10 +14,12 @@ module LitaForecast
     def conditions
       c = currently
       "#{temp} (feels like #{feels}) #{c['summary']}; Winds #{wind}; " \
-      "Humidity #{humidity}%; Dew Pt #{dew_pt}; Pressure #{pressure}; Cloud " \
+      "Humidity #{humidity}; Dew Pt #{dew_pt}; Pressure #{pressure}; Cloud " \
       "cover #{clouds}.\n" \
       "Next hour: #{next_hour} Next 24h: #{today}"
     end
+
+    private
 
     def currently
       @f['currently']
@@ -37,7 +39,7 @@ module LitaForecast
     end
 
     def humidity
-      round(0, currently['humidity'] * 100)
+      "#{round(0, currently['humidity'] * 100)}%"
     end
 
     def dew_pt
