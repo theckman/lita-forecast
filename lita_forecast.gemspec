@@ -3,17 +3,17 @@ require 'English'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-require 'lita-forecast/version'
+require 'lita_forecast/version'
 
 Gem::Specification.new do |g|
-  g.name        = 'lita-forecast'
+  g.name        = 'lita_forecast'
   g.version     = LitaForecast::VERSION
   g.date        = Time.now.strftime('%Y-%m-%d')
   g.description = 'Lita plugin for Forecast.io'
   g.summary     = 'Lita + Forecast.io'
   g.authors     = ['Tim Heckman']
   g.email       = 't@heckman.io'
-  g.homepage    = 'https://github.com/theckman/lita-forecast'
+  g.homepage    = 'https://github.com/theckman/lita_forecast'
   g.license     = 'MIT'
 
   g.test_files  = %x(git ls-files spec/*).split

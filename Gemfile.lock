@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lita-forecast (0.0.1)
+    lita_forecast (0.0.2)
       awesome_print (~> 1.2.0)
       compass_rose (~> 0.1.0)
       forecast_io (~> 2.0.0)
@@ -106,7 +106,7 @@ DEPENDENCIES
   bundler (~> 1.5)
   coveralls (~> 0.7.0)
   fuubar (~> 1.3.2)
-  lita-forecast!
+  lita_forecast!
   rake (~> 10.1.0)
   rspec (>= 3.0.0.beta2)
   rubocop (~> 0.19.1)

@@ -3,7 +3,7 @@ require 'rspec'
 require 'lita/rspec'
 require 'simplecov'
 require 'coveralls'
-require 'lita-forecast'
+require 'lita_forecast'
 
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start do
