@@ -20,7 +20,7 @@ describe LitaForecast::Current do
       'flags' => { 'units' => 'us' }
     }
   end
-  let(:current) { LitaForecast::Current.new(forecast) }
+  let(:current) { described_class.new(forecast) }
 
   describe '#new' do
     context 'when given more than one arg' do
