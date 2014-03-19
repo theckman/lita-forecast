@@ -21,7 +21,7 @@ Gem::Specification.new do |g|
 
   g.add_development_dependency 'bundler', '~> 1.5'
   g.add_development_dependency 'rake', '~> 10.1.0'
-  g.add_development_dependency 'rubocop', '~> 0.19.0'
+  g.add_development_dependency 'rubocop', '~> 0.19.1'
   g.add_development_dependency 'rspec', '>= 3.0.0.beta2'
   g.add_development_dependency 'fuubar', '~> 1.3.2'
   g.add_development_dependency 'simplecov', '~> 0.8.2'
