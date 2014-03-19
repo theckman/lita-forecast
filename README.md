@@ -1,4 +1,4 @@
-lita-forecast
+lita_forecast
 =============
 
 Forecast.io plugin for Lita
