@@ -3,7 +3,7 @@ require 'geocoder'
 require 'lita/handlers/forecast/mixins'
 
 module LitaForecast
-  # Something
+  # LitaForecast class for determining someone's location
   #
   class Location
     include LitaForecast::Mixins
@@ -15,13 +15,13 @@ module LitaForecast
     end
 
     def find_location(search)
-      loc = lita_redis.hgetall("alias:#{search}").symbolize_keys
+      loc = lita_redis.hgetall("alias:#{search}").symbolize_keys!
 
       if loc.empty?
         g = Geocoder.search(search)[0].data
         gl = geo_location(g)
-        loc = { lat: g['geometry']['viewport']['northeast']['lat'],
-                lng: g['geometry']['viewport']['northeast']['lng'],
+        loc = { lat: g['geometry']['location']['lat'],
+                lng: g['geometry']['location']['lng'],
                 desc: "#{gl[:city]}, #{gl[:state]}" }
       end
 
