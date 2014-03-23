@@ -1,16 +1,9 @@
 # -*- coding: UTF-8 -*-
 
-# The thing
-#
 module LitaForecast
-  # MOdule
+  # The random mixins I'll need, eventually
   #
   module Mixins
-    def round(precision, val)
-      base = 10**precision
-      format('%g', (val * base).to_i / base.to_f)
-    end
-
     def geo_location(result)
       h = {}
       result['address_components'].each do |a|
