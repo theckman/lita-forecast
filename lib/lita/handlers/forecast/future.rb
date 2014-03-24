@@ -49,18 +49,18 @@ module LitaForecast
     end
 
     def high_low
-      "High #{round(0, @i['temperatureMax'])}#{units(@f)[:t]}, " \
-      "Low #{round(0, @i['temperatureMin'])}#{units(@f)[:t]}."
+      "High #{@i['temperatureMax'].round(0)}#{units(@f)[:t]}, " \
+      "Low #{@i['temperatureMin'].round(0)}#{units(@f)[:t]}."
     end
 
     def precip
       type = @i['precipType'] || 'precipitation'
-      "#{round(0, @i['precipProbability'] * 100)}% chance of #{type}."
+      "#{(@i['precipProbability'] * 100).round(0)}% chance of #{type}."
     end
 
     def wind
       direction = Compass::Rose.direction(@i['windBearing'], 16)
-      "Winds #{direction} #{round(1, @i['windSpeed'])}#{units(@f)[:w]}"
+      "Winds #{direction} #{@i['windSpeed'].round(1)}#{units(@f)[:w]}"
     end
   end
 end

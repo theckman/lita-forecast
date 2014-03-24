@@ -1,11 +1,8 @@
 # -*- coding: UTF-8 -*-
 require 'rspec'
 require 'lita/rspec'
-require 'simplecov'
 require 'coveralls'
-require 'lita_forecast'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_filter '/spec/'
-end
+Coveralls.wear!
+
+require 'lita_forecast'

@@ -7,14 +7,8 @@ require 'hashie'
 class MockGeocoderClass
   DATA = {
     'address_components' => [
-      {
-        'long_name' => 'San Francisco',
-        'types' => %w(locality)
-      },
-      {
-        'short_name' => 'CA',
-        'types' => %w(administrative_area_level_1)
-      }
+      { 'long_name' => 'San Francisco', 'types' => %w(locality) },
+      { 'short_name' => 'CA', 'types' => %w(administrative_area_level_1) }
     ],
     'geometry' => {
       'location' => { 'lat' => 37.7749295, 'lng' => -122.4194155 }

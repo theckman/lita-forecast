@@ -26,32 +26,32 @@ module LitaForecast
     end
 
     def temp
-      "#{round(1, currently['temperature'])}#{units(@f)[:t]}"
+      "#{currently['temperature'].round(1)}#{units(@f)[:t]}"
     end
 
     def feels
-      "#{round(1, currently['apparentTemperature'])}#{units(@f)[:t]}"
+      "#{currently['apparentTemperature'].round(1)}#{units(@f)[:t]}"
     end
 
     def wind
       direction = Compass::Rose.direction(currently['windBearing'], 16)[:abbr]
-      "#{direction} #{round(1, currently['windSpeed'])}#{units(@f)[:w]}"
+      "#{direction} #{currently['windSpeed'].round(1)}#{units(@f)[:w]}"
     end
 
     def humidity
-      "#{round(0, currently['humidity'] * 100)}%"
+      "#{(currently['humidity'] * 100).round(0)}%"
     end
 
     def dew_pt
-      "#{round(1, currently['dewPoint'])}#{units(@f)[:t]}"
+      "#{currently['dewPoint'].round(1)}#{units(@f)[:t]}"
     end
 
     def pressure
-      "#{round(1, currently['pressure'])}mb"
+      "#{currently['pressure'].round(1)}mb"
     end
 
     def clouds
-      "#{round(1, currently['cloudCover'] * 100)}%"
+      "#{(currently['cloudCover'] * 100).round(0)}%"
     end
 
     def next_hour
