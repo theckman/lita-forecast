@@ -22,8 +22,7 @@ module LitaForecast
     end
 
     def conditions
-      future = ''
-      future << generate_summary
+      future = generate_summary
       future << generate_today
       future << generate_tomorrow
     end

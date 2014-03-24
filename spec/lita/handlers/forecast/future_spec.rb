@@ -64,7 +64,7 @@ describe LitaForecast::Future do
   end
 
   describe '.daily' do
-    context 'when passed more than one arg' do
+    context 'when passed more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:daily, nil)
@@ -82,7 +82,7 @@ describe LitaForecast::Future do
   end
 
   describe '.generate_summary' do
-    context 'when passed more than one arg' do
+    context 'when passed more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:generate_summary, nil)
@@ -100,7 +100,7 @@ describe LitaForecast::Future do
   end
 
   describe '.summary' do
-    context 'when given more than one arg' do
+    context 'when given more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:summary, nil)
@@ -123,7 +123,7 @@ describe LitaForecast::Future do
   end
 
   describe '.high_low' do
-    context 'when given more than one arg' do
+    context 'when given more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:high_low, nil)
@@ -147,7 +147,7 @@ describe LitaForecast::Future do
   end
 
   describe '.precip' do
-    context 'when given more than one arg' do
+    context 'when given more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:precip, nil)
@@ -181,7 +181,7 @@ describe LitaForecast::Future do
   end
 
   describe '.wind' do
-    context 'when given more than one arg' do
+    context 'when given more than zero args' do
       it 'should raise ArgumentError' do
         expect do
           @future.send(:wind, nil)
@@ -225,6 +225,32 @@ describe LitaForecast::Future do
         "precipitation. Winds N 0mph.\n"
       end
       subject { @future.send(:generate_day, 0, 'Today') }
+
+      it { should be_an_instance_of String }
+
+      it { should eql good_string }
+    end
+  end
+
+  describe '.conditions' do
+    context 'when given more than zero args' do
+      it 'should raise ArgumentError' do
+        expect do
+          @future.conditions(nil)
+        end.to raise_error ArgumentError
+      end
+    end
+
+    context 'when called' do
+      let(:good_string) do
+        "Summary: daily weather\n" \
+        "Today: weather today! High 68F, Low 60F. 0% chance of " \
+        "precipitation. Winds N 0mph.\n" \
+        "Tomorrow: weather tomorrow! High 70F, Low 62F. 100% chance of " \
+        "rain. Winds W 10mph.\n"
+      end
+
+      subject { @future.conditions }
 
       it { should be_an_instance_of String }
 
