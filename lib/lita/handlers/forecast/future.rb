@@ -41,7 +41,7 @@ module LitaForecast
     def generate_day(index, day)
       @i = daily[index]
       @d = day
-      "#{summary} #{high_low} #{precip}\n"
+      "#{summary} #{high_low} #{precip} #{wind}\n"
     end
 
     def summary
@@ -59,8 +59,8 @@ module LitaForecast
     end
 
     def wind
-      direction = Compass::Rose.direction(@i['windBearing'], 16)
-      "Winds #{direction} #{@i['windSpeed'].round(1)}#{units(@f)[:w]}"
+      direction = Compass::Rose.direction(@i['windBearing'], 16)[:abbr]
+      "Winds #{direction} #{@i['windSpeed'].round(0)}#{units(@f)[:w]}."
     end
   end
 end
