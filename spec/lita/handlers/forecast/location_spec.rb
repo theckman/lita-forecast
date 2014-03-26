@@ -66,6 +66,11 @@ describe LitaForecast::Location do
   end
 
   describe '.find_location' do
+    before do
+      allow_any_instance_of(Geocoder).to receive(:search)
+        .and_return([MockGeocoderClass])
+    end
+
     context 'when given more than one arg' do
       it 'should raise ArgumentError' do
         expect do
@@ -83,10 +88,6 @@ describe LitaForecast::Location do
     end
 
     context 'when passed "san francisco" and not cached' do
-      before do
-        allow_any_instance_of(Geocoder).to receive(:search)
-          .and_return([MockGeocoderClass])
-      end
       let(:good_hash) do
         { lat: 37.7749295, lng: -122.4194155, desc: 'San Francisco, CA' }
       end
