@@ -16,6 +16,10 @@ describe Lita::Handlers::LocationSearch, lita_handler: true do
     allow(Geocoder).to receive(:search) do |s|
       [MockGeocoderData.new(s, 'heckman')]
     end
+
+    allow_any_instance_of(Geocoder).to receive(:search) do |s|
+      [MockGeocoderData.new(s, 'heckman')]
+    end
   end
   let(:ls) { Lita::Handlers::LocationSearch.new('robot') }
 
