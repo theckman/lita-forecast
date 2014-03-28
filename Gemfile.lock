@@ -110,3 +110,4 @@ DEPENDENCIES
   rake (~> 10.1.0)
   rspec (>= 3.0.0.beta2)
   rubocop (~> 0.19.1)
+  simplecov (~> 0.8.2)
