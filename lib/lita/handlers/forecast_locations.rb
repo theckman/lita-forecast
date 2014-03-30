@@ -53,7 +53,11 @@ module Lita
         key = "alias:#{response.matches[0][0]}"
         return response.reply('Alias not found') unless alias_exists?(key)
         rm_from_cache(key)
-        response.reply('Alias removed!') if LitaForecast.redis.keys(key).empty?
+        if LitaForecast.redis.keys(key).empty?
+          return response.reply('Alias removed!')
+        else
+          return response.reply('Somehow that failed... I need an adult!')
+        end
       end
 
       def locations(response)
@@ -65,9 +69,8 @@ module Lita
       private
 
       def alias_exists?(key)
-        a = LitaForecast.redis.hgetall(key)
-        return false if a.empty?
-        true
+        return true unless LitaForecast.redis.hgetall(key).empty?
+        false
       end
 
       def add_to_cache(location)
@@ -84,7 +87,7 @@ module Lita
       end
 
       def saved_location_hash(r)
-        d = r[3].empty? ? r[0] : r[3].slice(0..29)
+        d = (r[3].nil? || r[3].empty?) ? r[0] : r[3].slice(0..29)
         { name: r[0], lat: r[1], lng: r[2], desc: d }
       end
 
