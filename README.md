@@ -2,6 +2,7 @@ lita-forecast
 =============
 [![Build Status](https://img.shields.io/travis/theckman/lita-forecast/master.svg)](https://travis-ci.org/theckman/lita-forecast)
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://tldrlegal.com/license/mit-license)
+[![RubyGems :: RMuh Gem Version](http://img.shields.io/gem/v/lita-forecast.svg)](https://rubygems.org/gems/lita-forecast)
 [![Coveralls Coverage](https://img.shields.io/coveralls/theckman/lita-forecast/master.svg)](https://coveralls.io/r/theckman/lita-forecast)
 [![Code Climate](https://img.shields.io/codeclimate/github/theckman/lita-forecast.svg)](https://codeclimate.com/github/theckman/lita-forecast)
 [![Gemnasium](https://img.shields.io/gemnasium/theckman/lita-forecast.svg)](https://gemnasium.com/theckman/lita-forecast)
