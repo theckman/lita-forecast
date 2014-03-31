@@ -6,7 +6,7 @@ RSpec::Core::RakeTask.new(:spec)
 
 Rubocop::RakeTask.new(:rubocop) do |t|
   t.patterns =
-    %w( Rakefile Gemfile lita_forecast.gemspec lib/**/*.rb spec/*_spec.rb )
+    %w( Rakefile Gemfile lita-forecast.gemspec lib/**/*.rb spec/*_spec.rb )
   t.fail_on_error = true
 end
 

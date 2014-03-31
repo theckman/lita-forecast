@@ -1,0 +1,6 @@
+FileName:
+  Exclude:
+    - Rakefile
+    - Gemfile
+    - lib/lita-forecast.rb
+    - lita-forecast.gemspec
