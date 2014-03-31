@@ -66,4 +66,10 @@ describe Lita::Handlers::Forecast, lita_handler: true do
       expect(subject.send(:api_key)).to eql ''
     end
   end
+
+  describe '#default_config' do
+    it 'should set the api_key to nil by default' do
+      expect(Lita.config.handlers.forecast.api_key).to be_nil
+    end
+  end
 end
