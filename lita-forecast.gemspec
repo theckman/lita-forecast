@@ -3,10 +3,10 @@ require 'English'
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-require 'lita_forecast/version'
+require 'lita-forecast/version'
 
 Gem::Specification.new do |g|
-  g.name        = 'lita_forecast'
+  g.name        = 'lita-forecast'
   g.version     = LitaForecast::VERSION
   g.date        = Time.now.strftime('%Y-%m-%d')
   g.description = 'Lita plugin for Forecast.io'

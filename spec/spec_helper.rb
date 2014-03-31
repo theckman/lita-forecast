@@ -9,4 +9,4 @@ SimpleCov.start do
   add_filter 'spec/'
 end
 
-require 'lita_forecast'
+require 'lita-forecast'
