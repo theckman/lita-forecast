@@ -76,7 +76,7 @@ module Lita
       def add_to_cache(location)
         key = "alias:#{location[:name]}"
         LitaForecast.redis.pipelined do
-          [:lat, :lng].each do |k|
+          [:lat, :lng, :desc].each do |k|
             LitaForecast.redis.hset(key, k.to_s, location[k])
           end
         end
