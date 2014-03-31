@@ -9,6 +9,19 @@ lita-forecast
 
 Forecast.io plugin for Lita
 
+LICENSE
+-------
+[lita-forecast](https://github.com/theckman/lita-forecast) is released under
+the [MIT](http://opensource.org/licenses/MIT) license. The full license is
+provided in the `LICENSE` file.
+
+CONTRIBUTING
+------------
+Something wrong or you want to submit an improvement? Fork the repo, make your
+changes on a feature branch, write some tests, and submit a pull request. I
+only ask that the commits have useful information and use proper/complete
+sentences.
+
 INSTALLATION
 ------------
 Simply add `lita-forecast` to the `Gemfile` for your Lita instance.
