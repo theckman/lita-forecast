@@ -81,7 +81,7 @@ describe Lita::Handlers::ForecastLocations, lita_handler: true do
 
     context 'when passed a location' do
       before do
-        @l_hash = { name: 'sf', lat: 37.7830503, lng: -122.3933962 }
+        @l_h = { name: 'sf', desc: 'sf', lat: 37.7830503, lng: -122.3933962 }
         allow(LitaForecast.redis).to receive(:hset).and_return(nil)
         allow(LitaForecast.redis).to receive(:pipelined).and_yield
       end
@@ -91,7 +91,9 @@ describe Lita::Handlers::ForecastLocations, lita_handler: true do
           .with('alias:sf', 'lat', 37.7830503).once
         expect(LitaForecast.redis).to receive(:hset)
           .with('alias:sf', 'lng', -122.3933962).once
-        subject.send(:add_to_cache, @l_hash)
+        expect(LitaForecast.redis).to receive(:hset)
+          .with('alias:sf', 'desc', 'sf').once
+        subject.send(:add_to_cache, @l_h)
       end
     end
   end
