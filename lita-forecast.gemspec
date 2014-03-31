@@ -16,7 +16,7 @@ Gem::Specification.new do |g|
   g.homepage    = 'https://github.com/theckman/lita_forecast'
   g.license     = 'MIT'
   g.required_ruby_version = '>= 2.0.0'
-  g.metadata = { "lita_plugin_type" => "handler" }
+  g.metadata = { 'lita_plugin_type' => 'handler' }
 
   g.test_files  = %x(git ls-files spec/*).split
   g.files       = %x(git ls-files).split
