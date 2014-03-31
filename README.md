@@ -2,11 +2,25 @@ lita-forecast
 =============
 [![Build Status](https://img.shields.io/travis/theckman/lita-forecast/master.svg)](https://travis-ci.org/theckman/lita-forecast)
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://tldrlegal.com/license/mit-license)
+[![RubyGems :: RMuh Gem Version](http://img.shields.io/gem/v/lita-forecast.svg)](https://rubygems.org/gems/lita-forecast)
 [![Coveralls Coverage](https://img.shields.io/coveralls/theckman/lita-forecast/master.svg)](https://coveralls.io/r/theckman/lita-forecast)
 [![Code Climate](https://img.shields.io/codeclimate/github/theckman/lita-forecast.svg)](https://codeclimate.com/github/theckman/lita-forecast)
 [![Gemnasium](https://img.shields.io/gemnasium/theckman/lita-forecast.svg)](https://gemnasium.com/theckman/lita-forecast)
 
 Forecast.io plugin for Lita
+
+LICENSE
+-------
+[lita-forecast](https://github.com/theckman/lita-forecast) is released under
+the [MIT](http://opensource.org/licenses/MIT) license. The full license is
+provided in the `LICENSE` file.
+
+CONTRIBUTING
+------------
+Something wrong or you want to submit an improvement? Fork the repo, make your
+changes on a feature branch, write some tests, and submit a pull request. I
+only ask that the commits have useful information and use proper/complete
+sentences.
 
 INSTALLATION
 ------------
