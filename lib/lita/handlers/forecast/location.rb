@@ -22,10 +22,33 @@ module LitaForecast
         gl = geo_location(g)
         loc = { lat: g['geometry']['location']['lat'],
                 lng: g['geometry']['location']['lng'],
-                desc: "#{gl[:city]}, #{gl[:state]}" }
+                desc: desc(gl) }
       end
 
       loc
+    end
+
+    private
+
+    def desc(loc)
+      l = ''
+      h = { c: city(loc), s: state(loc) }
+      l << h[:c]
+      l << ', ' unless h[:c].empty? || h[:s].empty?
+      l << h[:s]
+      l
+    end
+
+    def city(loc)
+      c = ''
+      c << loc[:city] if loc[:city].is_a?(String) && !loc[:city].empty?
+      c
+    end
+
+    def state(loc)
+      s = ''
+      s << loc[:state] if loc[:state].is_a?(String) && !loc[:state].empty?
+      s
     end
   end
 end

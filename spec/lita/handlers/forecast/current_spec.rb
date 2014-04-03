@@ -20,7 +20,25 @@ describe LitaForecast::Current do
       'flags' => { 'units' => 'us' }
     }
   end
+  let(:missing_info_forecast) do
+    {
+      'currently' => {
+        'temperature' => 100.11,
+        'apparentTemperature' => 102.11,
+        'summary' => 'weather',
+        'windBearing' => 0,
+        'windSpeed' => 5.11,
+        'humidity' => 0.10,
+        'dewPoint' => 20.11,
+        'pressure' => 1020.11,
+        'cloudCover' => 0.01
+      },
+      'flags' => { 'units' => 'us' }
+    }
+  end
   let(:current) { described_class.new(forecast) }
+  let(:current_no_summary) { described_class.new(missing_info_forecast) }
+  let(:summary_fail) { 'Information unavailable. :(' }
 
   describe '#new' do
     context 'when given more than one arg' do
@@ -48,6 +66,14 @@ describe LitaForecast::Current do
         expect(subject.instance_variable_get(:@f)).to eql forecast
       end
     end
+  end
+
+  describe '::INFO_UNAVAIL' do
+    subject { LitaForecast::Current::INFO_UNAVAIL }
+
+    it { should be_an_instance_of String }
+
+    it { should eql 'Information unavailable. :(' }
   end
 
   describe '.currently' do
@@ -210,13 +236,21 @@ describe LitaForecast::Current do
       end
     end
 
-    context 'when passed no args' do
+    context 'when there is a summary' do
       subject { current.send(:next_hour) }
       let(:next_hour) { 'minutely weather' }
 
       it { should be_an_instance_of String }
 
       it { should eql next_hour }
+    end
+
+    context 'when there is not a summary' do
+      subject { current_no_summary.send(:next_hour) }
+
+      it { should be_an_instance_of String }
+
+      it { should eql summary_fail }
     end
   end
 
@@ -229,13 +263,21 @@ describe LitaForecast::Current do
       end
     end
 
-    context 'when passed no args' do
+    context 'when there is a summary' do
       subject { current.send(:today) }
       let(:today) { 'hourly weather' }
 
       it { should be_an_instance_of String }
 
       it { should eql today }
+    end
+
+    context 'when there is not a summary' do
+      subject { current_no_summary.send(:today) }
+
+      it { should be_an_instance_of String }
+
+      it { should eql summary_fail }
     end
   end
 
