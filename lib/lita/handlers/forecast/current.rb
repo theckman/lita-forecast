@@ -7,6 +7,8 @@ module LitaForecast
   class Current
     include LitaForecast::Mixins
 
+    INFO_UNAVAIL ||= 'Information unavailable. :('
+
     def initialize(forecast)
       @f = forecast
     end
@@ -56,10 +58,14 @@ module LitaForecast
 
     def next_hour
       @f['minutely']['summary']
+    rescue
+      INFO_UNAVAIL
     end
 
     def today
       @f['hourly']['summary']
+    rescue
+      INFO_UNAVAIL
     end
   end
 end
