@@ -65,93 +65,79 @@ describe LitaForecast::Location do
     end
   end
 
-  describe '.city' do
-    context 'when given more than one arg' do
+  describe '.name' do
+    context 'when given more than two arga' do
       it 'should raise ArgumentError' do
         expect do
-          @lfloc.send(:city, nil, nil)
+          @lfloc.send(:name, nil, nil, nil)
         end.to raise_error ArgumentError
       end
     end
 
-    context 'when given less than one arg' do
+    context 'when given less than two args' do
       it 'should raise ArgumentError' do
         expect do
-          @lfloc.send(:city)
+          @lfloc.send(:name, nil)
         end.to raise_error ArgumentError
       end
     end
 
-    context 'when given a location with a city and state' do
-      let(:location) { { city: 'San Francisco', state: 'CA' } }
-      subject { @lfloc.send(:city, location) }
+    context 'when looking for a city' do
+      context 'when given a location with a city and state' do
+        let(:location) { { city: 'San Francisco', state: 'CA' } }
+        subject { @lfloc.send(:name, :city, location) }
 
-      it { should be_an_instance_of String }
+        it { should be_an_instance_of String }
 
-      it { should eql 'San Francisco' }
-    end
+        it { should eql 'San Francisco' }
+      end
 
-    context 'when given a location with a city' do
-      let(:location) { { city: 'San Francisco' } }
-      subject { @lfloc.send(:city, location) }
+      context 'when given a location with a city' do
+        let(:location) { { city: 'San Francisco' } }
+        subject { @lfloc.send(:name, :city, location) }
 
-      it { should be_an_instance_of String }
+        it { should be_an_instance_of String }
 
-      it { should eql 'San Francisco' }
-    end
+        it { should eql 'San Francisco' }
+      end
 
-    context 'when given a location without a city' do
-      let(:location) { { state: 'CA' } }
-      subject { @lfloc.send(:city, location) }
+      context 'when given a location without a city' do
+        let(:location) { { state: 'CA' } }
+        subject { @lfloc.send(:name, :city, location) }
 
-      it { should be_an_instance_of String }
+        it { should be_an_instance_of String }
 
-      it { should eql '' }
-    end
-  end
-
-  describe '.state' do
-    context 'when given more than one arg' do
-      it 'should raise ArgumentError' do
-        expect do
-          subject.send(:state, nil, nil)
-        end.to raise_error ArgumentError
+        it { should eql '' }
       end
     end
 
-    context 'when given less than one arg' do
-      it 'should raise ArgumentError' do
-        expect do
-          subject.send(:state)
-        end.to raise_error ArgumentError
+    context 'when looking for a state' do
+      context 'when given location with a city and a state' do
+        let(:location) { { city: 'San Francisco', state: 'CA' } }
+        subject { @lfloc.send(:name, :state, location) }
+
+        it { should be_an_instance_of String }
+
+        it { should eql 'CA' }
       end
-    end
 
-    context 'when given location with a city and a state' do
-      let(:location) { { city: 'San Francisco', state: 'CA' } }
-      subject { @lfloc.send(:state, location) }
+      context 'when given location with a state' do
+        let(:location) { { state: 'CA' } }
+        subject { @lfloc.send(:name, :state, location) }
 
-      it { should be_an_instance_of String }
+        it { should be_an_instance_of String }
 
-      it { should eql 'CA' }
-    end
+        it { should eql 'CA' }
+      end
 
-    context 'when given location with a state' do
-      let(:location) { { state: 'CA' } }
-      subject { @lfloc.send(:state, location) }
+      context 'when given location with only a city' do
+        let(:location) { { city: 'San Francisco' } }
+        subject { @lfloc.send(:name, :state, location) }
 
-      it { should be_an_instance_of String }
+        it { should be_an_instance_of String }
 
-      it { should eql 'CA' }
-    end
-
-    context 'when given location with only a city' do
-      let(:location) { { city: 'San Francisco' } }
-      subject { @lfloc.send(:state, location) }
-
-      it { should be_an_instance_of String }
-
-      it { should eql '' }
+        it { should eql '' }
+      end
     end
   end
 
