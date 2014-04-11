@@ -32,23 +32,17 @@ module LitaForecast
 
     def desc(loc)
       l = ''
-      h = { c: city(loc), s: state(loc) }
+      h = { c: name(:city, loc), s: name(:state, loc) }
       l << h[:c]
       l << ', ' unless h[:c].empty? || h[:s].empty?
       l << h[:s]
       l
     end
 
-    def city(loc)
-      c = ''
-      c << loc[:city] if loc[:city].is_a?(String) && !loc[:city].empty?
-      c
-    end
-
-    def state(loc)
-      s = ''
-      s << loc[:state] if loc[:state].is_a?(String) && !loc[:state].empty?
-      s
+    def name(key, loc)
+      n = ''
+      n << loc[key] if loc[key].is_a?(String) && !loc[key].empty?
+      n
     end
   end
 end
