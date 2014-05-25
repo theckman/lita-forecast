@@ -31,6 +31,6 @@ Gem::Specification.new do |g|
 
   g.add_runtime_dependency 'lita', '>= 3.0.0'
   g.add_runtime_dependency 'forecast_io', '~> 2.0.0'
-  g.add_runtime_dependency 'geocoder', '~> 1.2.1'
+  g.add_runtime_dependency 'geocoder', '~> 1.1', '>= 1.1.9'
   g.add_runtime_dependency 'compass_rose', '~> 0.1.0'
 end
