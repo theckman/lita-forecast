@@ -188,7 +188,7 @@ describe LitaForecast::Location do
 
   describe '.find_location' do
     before do
-      allow_any_instance_of(Geocoder).to receive(:search)
+      allow(Geocoder).to receive(:search)
         .and_return([MockGeocoderClass])
     end
 
