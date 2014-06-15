@@ -29,6 +29,7 @@ Gem::Specification.new do |g|
   g.add_development_dependency 'coveralls', '~> 0.7.0'
   g.add_development_dependency 'simplecov', '~> 0.8.2'
 
+  g.add_runtime_dependency 'hashie', '~> 3.0'
   g.add_runtime_dependency 'lita', '>= 3.0.0'
   g.add_runtime_dependency 'forecast_io', '~> 2.0.0'
   g.add_runtime_dependency 'geocoder', '~> 1.1', '>= 1.1.9'

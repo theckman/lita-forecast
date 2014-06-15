@@ -1,6 +1,12 @@
 # -*- coding: UTF-8 -*-
+require 'hashie'
 require 'geocoder'
 require 'lita/handlers/forecast/mixins'
+
+# mokey-patch to get .symbolize_keys!() from hashie
+class Hash
+  include Hashie::Extensions::SymbolizeKeys
+end
 
 module LitaForecast
   # LitaForecast class for determining someone's location
