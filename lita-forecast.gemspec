@@ -23,7 +23,7 @@ Gem::Specification.new do |g|
 
   g.add_development_dependency 'bundler', '~> 1.5'
   g.add_development_dependency 'rake', '~> 10.2'
-  g.add_development_dependency 'rubocop', '~> 0.23.0'
+  g.add_development_dependency 'rubocop', '~> 0.35.0'
   g.add_development_dependency 'rspec', '~> 3.0'
   g.add_development_dependency 'fuubar', '>= 2.0.0.rc1'
   g.add_development_dependency 'coveralls', '~> 0.7.0'
