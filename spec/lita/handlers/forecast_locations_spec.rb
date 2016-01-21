@@ -3,13 +3,13 @@ require 'spec_helper'
 
 describe Lita::Handlers::ForecastLocations, lita_handler: true do
 
-  it { routes_command('wadd place 42 42').to(:location_add) }
+  it { is_expected.to route_command('wadd place 42 42').to(:location_add) }
 
-  it { routes_command('wadd place 42 42 theplace').to(:location_add) }
+  it { is_expected.to route_command('wadd place 42 42 theplace').to(:location_add) }
 
-  it { routes_command('wrm place').to(:location_rm) }
+  it { is_expected.to route_command('wrm place').to(:location_rm) }
 
-  it { routes_command('wl').to(:locations) }
+  it { is_expected.to route_command('wl').to(:locations) }
 
   describe '.saved_location_hash' do
     context 'when given a description' do

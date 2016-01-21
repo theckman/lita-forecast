@@ -2,9 +2,9 @@
 require 'spec_helper'
 
 describe Lita::Handlers::Forecast, lita_handler: true do
-  it { routes_command('wx sf').to(:weather_us) }
+  it { is_expected.to route_command('wx sf').to(:weather_us) }
 
-  it { routes_command('wc sf').to(:weather_ca) }
+  it { is_expected.to route_command('wc sf').to(:weather_ca) }
 
   describe '#default_config' do
     it 'should set an empty api key' do
