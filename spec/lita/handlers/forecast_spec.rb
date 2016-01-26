@@ -6,7 +6,7 @@ describe Lita::Handlers::Forecast, lita_handler: true do
 
   it { is_expected.to route_command('wc sf').to(:weather_ca) }
 
-  describe '#default_config' do
+  describe '#config' do
     it 'should set an empty api key' do
       expect(Lita.config.handlers.forecast.api_key).to be_nil
     end
@@ -64,12 +64,6 @@ describe Lita::Handlers::Forecast, lita_handler: true do
       allow(Lita.config.handlers.forecast).to receive(:api_key)
         .and_return('')
       expect(subject.send(:api_key)).to eql ''
-    end
-  end
-
-  describe '#default_config' do
-    it 'should set the api_key to nil by default' do
-      expect(Lita.config.handlers.forecast.api_key).to be_nil
     end
   end
 end
