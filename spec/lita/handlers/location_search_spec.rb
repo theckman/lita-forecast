@@ -81,6 +81,8 @@ describe Lita::Handlers::LocationSearch, lita_handler: true do
   end
 
   describe '.search' do
+    before { allow(described_class).to receive(:new).and_return(subject) }
+
     it 'should return the search response from generate_response' do
       allow(subject)
         .to receive(:generate_response) do |s|

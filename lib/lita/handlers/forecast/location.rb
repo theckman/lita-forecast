@@ -22,16 +22,8 @@ module LitaForecast
 
     def find_location(search)
       loc = lita_redis.hgetall("alias:#{search}").symbolize_keys!
-
-      if loc.empty?
-        g = Geocoder.search(search)[0].data
-        gl = geo_location(g)
-        loc = { lat: g['geometry']['location']['lat'],
-                lng: g['geometry']['location']['lng'],
-                desc: desc(gl) }
-      end
-
-      loc
+      return loc unless loc.empty?
+      geo_search(search)
     end
 
     private
@@ -43,6 +35,14 @@ module LitaForecast
       l << ', ' unless h[:c].empty? || h[:s].empty?
       l << h[:s]
       l
+    end
+
+    def geo_search(search)
+      g = Geocoder.search(search)[0].data
+      gl = geo_location(g)
+      { lat: g['geometry']['location']['lat'],
+        lng: g['geometry']['location']['lng'],
+        desc: desc(gl) }
     end
 
     def name(key, loc)
