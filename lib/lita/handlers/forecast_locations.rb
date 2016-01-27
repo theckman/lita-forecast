@@ -35,10 +35,6 @@ module Lita
         }
       )
 
-      def self.default_config(config)
-        config.api_key = nil
-      end
-
       def location_add(response)
         r = response.matches[0]
         return response.reply('Already there!') if alias_exists?(r[0])

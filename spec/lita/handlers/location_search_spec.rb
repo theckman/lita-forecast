@@ -19,7 +19,7 @@ describe Lita::Handlers::LocationSearch, lita_handler: true do
   end
   let(:ls) { Lita::Handlers::LocationSearch.new('robot') }
 
-  it { routes_command('ws sf').to(:search) }
+  it { is_expected.to route_command('ws sf').to(:search) }
 
   describe '.search_geocoder' do
     context 'when given more than one arg' do
@@ -81,6 +81,8 @@ describe Lita::Handlers::LocationSearch, lita_handler: true do
   end
 
   describe '.search' do
+    before { allow(described_class).to receive(:new).and_return(subject) }
+
     it 'should return the search response from generate_response' do
       allow(subject)
         .to receive(:generate_response) do |s|

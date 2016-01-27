@@ -11,9 +11,7 @@ module Lita
       include LitaForecast::Mixins
       include LitaForecast::Weather
 
-      def self.default_config(config)
-        config.api_key = nil
-      end
+      config :api_key, required: true
 
       route(
         /^wx\s(.*)$/,

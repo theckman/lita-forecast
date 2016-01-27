@@ -10,3 +10,5 @@ SimpleCov.start do
 end
 
 require 'lita-forecast'
+
+Lita.version_3_compatibility_mode = false

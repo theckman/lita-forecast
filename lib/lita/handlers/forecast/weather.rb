@@ -16,8 +16,8 @@ module LitaForecast
     end
 
     def weather(response, api_key, units = 'us')
-      location = LitaForecast::Location.new(LitaForecast.redis)
-        .find_location(response.args.join(' '))
+      location = LitaForecast::Location.new(LitaForecast.redis).find_location(
+        response.args.join(' '))
       f = weather_forecast(api_key, location.merge(params: { units: units }))
       LitaForecast::Response.new(f, location[:desc]).generate
     end
